@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:utip/widgets/person_counter.dart';
 
 void main() {
   runApp(const UIipApp());
@@ -54,7 +55,6 @@ class _UIipState extends State<UIip> {
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
     //Add style
-
     final style = theme.textTheme.titleMedium!.copyWith(
         color: theme.colorScheme.onPrimary, fontWeight: FontWeight.bold);
     return Scaffold(
@@ -113,21 +113,11 @@ class _UIipState extends State<UIip> {
                         'Split',
                         style: theme.textTheme.titleMedium,
                       ),
-                      Row(
-                        children: [
-                          IconButton(
-                              color: theme.colorScheme.primary,
-                              onPressed: decrement,
-                              icon: const Icon(Icons.remove)),
-                          Text(
-                            "$_personCount",
-                            style: theme.textTheme.titleMedium,
-                          ),
-                          IconButton(
-                              color: theme.colorScheme.primary,
-                              onPressed: increment,
-                              icon: const Icon(Icons.add)),
-                        ],
+                      PersonCounter(
+                        theme: theme,
+                        personCount: _personCount,
+                        onDecrement: decrement,
+                        onIncrement: increment,
                       )
                     ],
                   )
