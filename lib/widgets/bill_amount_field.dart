@@ -17,7 +17,7 @@ class BillAmountField extends StatelessWidget {
           prefixIcon: Icon(Icons.attach_money),
           labelText: 'Bill Amount'),
       keyboardType: TextInputType.number,
-      onChanged: (String value) {
+      onChanged: (value) {
         onChanged(value);
       },
     );
